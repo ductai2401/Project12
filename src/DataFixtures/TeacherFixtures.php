@@ -18,7 +18,7 @@ class TeacherFixtures extends Fixture
             $teacher->setAge($i*30);
             $teacher->setPhone("1232345");
             $teacher->setAddress("Greenwich");
-            //$teacher->setAvatar("teacher.png");
+            $teacher->setAvatar("teacher.jpg");
             $manager->persist($teacher);
         }
 

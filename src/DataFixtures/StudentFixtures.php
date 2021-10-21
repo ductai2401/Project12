@@ -18,7 +18,7 @@ class StudentFixtures extends Fixture
             $student->setAge($i*20);
             $student->setPhone("12345");
             $student->setAddress("Greenwich");
-            //$student->setAvatar("Vector.png");
+            $student->setAvatar("student.jpg");
             $manager->persist($student);
         }
 

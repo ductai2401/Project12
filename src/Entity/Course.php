@@ -44,6 +44,11 @@ class Course
      */
     private $studentList;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="courseList")
+     */
+    private $category;
+
     public function __construct()
     {
         $this->teacherList = new ArrayCollection();
@@ -141,6 +146,18 @@ class Course
         if ($this->studentList->removeElement($studentList)) {
             $studentList->removeCourse($this);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
