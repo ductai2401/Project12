@@ -2,8 +2,8 @@
 
 {% block body %}
 	<div class="container col-md-6 mt-3">
-		<h3 class="text-success text-center">COURSELIST</h3>
-		{# <a class="btn btn-outline-success mt-2" href="{{ path('teacher_add') }}">ADD TEACHER</a> #}
+		<h3 class="text-success text-center">COURSE LIST</h3>
+		<a class="btn btn-outline-success mt-2" href="{{ path('course_add') }}">ADD COURSE</a>
 		<table class="table table-striped text-center mt-2">
 			<thead>
 				<tr>
@@ -15,13 +15,12 @@
 				{% for course in courses %}
 					<tr>
 						<td>{{ course.id }}</td>
-						<td>{{ course.name }}</td>
 						<td>
-							<a href="{{ path('course_detail', {'id': course.id}) }}">
+							<a href="{{ path('course_detail', {'id': course.id}) }}">{{ course.name }}
 							</a>
 						</td>
 						<td>
-							{# <a class="btn btn-info" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a> #}
+							<a class="btn btn-info" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a>
 							<a class="btn btn-warning" href="{{ path('course_delete', {'id':course.id}) }}" onclick="return confirm('Are you sure to delete this course ?')">DELETE</a>
 						</td>
 					</tr>

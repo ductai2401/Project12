@@ -6,8 +6,9 @@ use App\Entity\Course;
 use App\Entity\Category;
 use App\Entity\Teacher;
 use App\Entity\Student;
-use Symfony\Component\Form\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,24 +21,24 @@ class CourseType extends AbstractType
             ->add('name', TextType::class,
             [
                 'label' => 'Course Name',
-                'require' => true,
+                'required' => true,
             ]
             )
             ->add('startDate', DateType::class,
             [
                 'label' => 'Course Start Date',
-                'require' => false,
+                'required' => false,
                 'widget' => 'single_text',
             ]
             )
             ->add('endDate', DateType::class,
             [
                 'label' => 'Course End Date',
-                'require' => false,
+                'required' => false,
                 'widget' => 'single_text',
             ]
             )
-            ->add('teacherList', Entity::class,
+            ->add('teacherList', EntityType::class,
             [
                 'label' => 'Teacher List',
                 'class' => Teacher::class,
@@ -46,17 +47,18 @@ class CourseType extends AbstractType
                 'expanded' => false,
             ]
             )
-            ->add('studentList', Entity::class,
+            ->add('studentList', EntityType::class,
             [
                 'label' => 'Student List',
                 'class' => Student::class,
                 'choice_label' => 'name',
+                'multiple' => true,
                 'expanded' => false,
             ]
             )
-            ->add('category', Entity::class,
+            ->add('category', EntityType::class,
             [
-                'label' => 'Category',
+                'label' => 'Major',
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => false,
