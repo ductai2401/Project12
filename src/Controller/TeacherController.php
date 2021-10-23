@@ -25,7 +25,7 @@ class TeacherController extends AbstractController
         if ($teacher == null) {
             $this->addFlash('Error', 'Teacher not found !');
             return $this->redirectToRoute('teacher_index');
-        } else { //$teacher != null
+        } else {
             return $this->render(
                 'teacher/detail.html.twig',
                 [
@@ -49,6 +49,13 @@ class TeacherController extends AbstractController
         }
         return $this->redirectToRoute('teacher_index');
     }
+
+    #[Route('/teacher/edit/{id}', name: 'teacher_edit')]
+    public function editTeacher($id){
+        
+    }
+
+    
 
     // #[Route('/teacher/add/{id}', name: 'teacher_add')]
     // public function addAuthor(Request $request)
