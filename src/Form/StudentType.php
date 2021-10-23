@@ -3,12 +3,14 @@
 namespace App\Form;
 use App\Entity\Course;
 use App\Entity\Student;
-use Symfony\Component\Form\TextType;
-use Symfony\Component\Form\IntegerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
 
 class StudentType extends AbstractType
 {
@@ -21,13 +23,15 @@ class StudentType extends AbstractType
                     'required' => true
                 ]
             )
-            ->add('age', Integertype::class, [
+            ->add('age', IntegerType::class, [
                 'label' => 'Student Age',
                 'required' =>true
             ])
-            ->add('avatar', Filetype::class, [
-                'label' => 'Student Avatar',
-                'required' =>true
+            ->add('avatar', FileType::class, [
+                'label' => 'Avatar',
+                'data_class' => null,
+                'required' => is_null($builder->getData()->getAvatar())
+
             ])
             ->add('address', Texttype::class, [
                 'label' => 'Student address',
@@ -37,7 +41,7 @@ class StudentType extends AbstractType
                 'label' => 'Student phone',
                 'required' =>true
             ])
-            ->add('course', Entity::class, [
+            ->add('course', EntityType::class, [
                 'label' => 'Course',
                 'class' => Course::class,
                 'choice_label' => "name", //hien thi course name de chon
