@@ -28,7 +28,7 @@
 		
 		{% block header %}
 			{# navigation bar #}
-		<div class="container mt-4">
+		<div class="navbar navbar-light" style="background-color: #e3f2fd;">
 			<ul class="nav justify-content-center">
 				<li class="nav-item">
 					<h2>
@@ -37,27 +37,27 @@
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="nav-link" href="{{ path('category_index') }}">CATEGORY</a>
+						<a class="navbar-brand" href="{{ path('category_index') }}">CATEGORY</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="nav-link" href="{{ path('course_index') }}">COURSE</a>
+						<a class="navbar-brand" href="{{ path('course_index') }}">COURSE</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="nav-link" href="{{ path('teacher_index') }}">TEACHER</a>
+						<a class="navbar-brand" href="{{ path('teacher_index') }}">TEACHER</a>
 					</h2>
 				</li>
                 <li class="nav-item">
 					<h2>
-						<a class="nav-link" href="{{ path('student_index') }}">STUDENT</a>
+						<a class="navbar-brand" href="{{ path('student_index') }}">STUDENT</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="nav-link" href="">LOGOUT</a>
+						<a class="navbar-brand" href="">LOGOUT</a>
 					</h2>
 				</li>
 			</ul>
