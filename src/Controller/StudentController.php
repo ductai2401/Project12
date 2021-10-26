@@ -78,7 +78,7 @@ class StudentController extends AbstractController
                     //cho "author_avatar" ở file config/services.yaml
                 );
             } catch (FileException $e) {
-                throwException($e);
+                // throwException($e);
             }
             //B6: lưu tên vào database
             $student->setAvatar($imageName);
@@ -124,7 +124,7 @@ class StudentController extends AbstractController
                             //cho "author_avatar" ở file config/services.yaml
                         );
                     } catch (FileException $e) {
-                        throwException($e);
+                        // throwException($e);
                     }
                     $student->setAvatar($imageName);
                 }
