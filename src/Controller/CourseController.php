@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Course;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\CourseType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CourseController extends AbstractController
 {
@@ -52,4 +54,49 @@ class CourseController extends AbstractController
         return $this->redirectToRoute('course_index');
     }
 
+    #[Route('/course/add', name: 'course_add')]
+    public function addCourse (Request $request) {
+        $course = new Course();
+        $form = $this->createForm(CourseType::class, $course);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($course);
+            $manager->flush();
+
+            $this->addFlash('Success', "Course has been added successfully !");
+            return $this->redirectToRoute("course_index");
+        }
+
+        return $this->render (
+            "course/add.html.twig", 
+            [
+                'form' => $form->createView()
+            ]
+        );
+    }
+
+    #[Route('/course/edit/{id}', name: 'course_edit')]
+    public function editCourse(Request $request, $id) {
+        $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
+        $form = $this->createForm(CourseType::class, $course);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($course);
+            $manager->flush();
+
+            $this->addFlash('Success', "Course has been updated successfully !");
+            return $this->redirectToRoute("course_index");
+        }
+
+        return $this->render (
+            "course/edit.html.twig", 
+            [
+                'form' => $form->createView()
+            ]
+        );
+    }
 }
