@@ -90,8 +90,9 @@ class Teacher
 
     public function setAvatar($avatar)
     {
-        $this->avatar = $avatar;
-
+        if($avatar != null){
+            $this->avatar = $avatar;
+        }
         return $this;
     }
 

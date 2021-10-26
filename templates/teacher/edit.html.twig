@@ -15,6 +15,14 @@
             }}
          </div>
          <div class="form-group">
+            {{ form_label(form.avatar) }}
+            {{ form_widget(form.avatar,
+               {
+                  'attr': { 'class' : 'form-control'}
+               })
+            }}
+         </div>
+         <div class="form-group">
             {{ form_label(form.age) }}
             {{ form_widget(form.age,
                {
@@ -25,14 +33,6 @@
          <div class="form-group">
             {{ form_label(form.address) }}
             {{ form_widget(form.address,
-               {
-                  'attr': { 'class' : 'form-control'}
-               })
-            }}
-         </div>
-         <div class="form-group">
-            {{ form_label(form.avatar) }}
-            {{ form_widget(form.avatar,
                {
                   'attr': { 'class' : 'form-control'}
                })
