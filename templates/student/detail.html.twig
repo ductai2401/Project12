@@ -23,22 +23,14 @@
                         <td>{{student.age}}</td>
                         <td>{{student.address}}</td>
                         <td>{{student.phone}}</td>
-					{# <td>
+					<td>
 						{% for b in teacher.courseList %}
-							<a href="{{ path(course_detail', {'id': b.id }) }}">
+							<a href="{{ path('course_detail', {'id': b.id }) }}">
 								{{ b.name }}
 							</a>
 							<br>
 						{% endfor %}
 					</td>
-					<td>
-                  {% for m in teacher.magazines %}
-							<a href="{{ path('magazine_detail', {'id': m.id }) }}">
-								{{ m.title }}
-							</a>
-							<br>
-						{% endfor %}
-					</td> #}
 					{% if is_granted('ROLE_ADMIN') %}
 						<td>
 							<a class="btn btn-info" href="{{ path('student_edit', {'id': student.id}) }}">EDIT</a>
