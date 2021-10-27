@@ -62,7 +62,7 @@ class CourseType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => false,
-                'expanded' => false,
+                'expanded' => true,
             ]
             )
         ;

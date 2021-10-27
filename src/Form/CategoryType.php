@@ -3,13 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Course;
-use App\Entity\Category;
-use App\Entity\Teacher;
 use App\Entity\Student;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use App\Entity\Teacher;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
 
@@ -28,6 +29,16 @@ class CategoryType extends AbstractType
             [
                 'label' => "Description", 
                 'required' => true
+            ]
+            )
+
+            ->add('courseList', EntityType::class,
+            [
+                'label' => 'Course',
+                'class' => Course::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
             ]
             )
         ;

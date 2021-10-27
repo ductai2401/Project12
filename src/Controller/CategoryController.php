@@ -29,7 +29,7 @@ class CategoryController extends AbstractController
 
     #[Route('/category/detail/{id}', name: 'category_detail')]
     public function categoryDetail($id){
-        $category = $this->getDoctrine()->getRepository(Course::class)->find($id);
+        $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
         if ($category == null) {
             $this->addFlash('Error', 'Course not found !');
             return $this->redirectToRoute('category_index');

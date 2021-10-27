@@ -12,6 +12,7 @@
 					<th>Age</th>
 					<th>Address</th>
 					<th>Phone</th>
+					<th>Course</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,7 +25,7 @@
                         <td>{{student.address}}</td>
                         <td>{{student.phone}}</td>
 					<td>
-						{% for b in teacher.courseList %}
+						{% for b in student.course %}
 							<a href="{{ path('course_detail', {'id': b.id }) }}">
 								{{ b.name }}
 							</a>
