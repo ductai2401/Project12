@@ -4,13 +4,17 @@ namespace App\Controller;
 
 use App\Entity\Teacher;
 use App\Form\TeacherType;
-use function PHPUnit\Framework\throwException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use function PHPUnit\Framework\throwException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
+/**
+* @IsGranted("ROLE_ADMIN")
+*/
 class TeacherController extends AbstractController
 {
     #[Route('/teacher', name: 'teacher_index')]
@@ -40,6 +44,9 @@ class TeacherController extends AbstractController
         }
     }
 
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     */
     #[Route('/teacher/delete/{id}', name: 'teacher_delete')] 
     public function deleteTeacher($id)
     {
@@ -55,6 +62,9 @@ class TeacherController extends AbstractController
         return $this->redirectToRoute('teacher_index');
     }
 
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     */
     #[Route('/teacher/edit/{id}', name: 'teacher_edit')]
     public function editTeacher(Request $request, $id){
         $teacher = $this->getDoctrine()->getRepository(Teacher::class)->find($id);
@@ -112,7 +122,9 @@ class TeacherController extends AbstractController
     }
 
     
-
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     */
     #[Route('/teacher/add', name: 'teacher_add')]
     public function addTeacher(Request $request)
     {

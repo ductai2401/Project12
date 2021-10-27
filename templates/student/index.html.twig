@@ -13,7 +13,9 @@
                     <th>Age</th>
                     <th>Address</th>
                     <th>Phone</th>
-					<th>Menu</th>
+					{% if is_granted('ROLE_ADMIN') %}
+						<th>Action</th>
+					{% endif %}
 				</tr>
 			</thead>
 			<tbody>
@@ -29,11 +31,13 @@
                         <td>{{ student.age}}</td>
                         <td>{{student.address }}</td>
                         <td>{{student.phone}}</td>
+						{% if is_granted('ROLE_ADMIN') %}
 						<td>
 						<a class="btn btn-info" href="{{ path('student_detail', {'id': student.id}) }}">DETAIL</a>
 							<a class="btn btn-info" href="{{ path('student_edit', {'id': student.id}) }}">EDIT</a>
 							<a class="btn btn-warning" href="{{ path('student_delete', {'id':student.id}) }}" onclick="return confirm('Are you sure to delete this student ?')">DELETE</a>
 						</td>
+						{% endif %}
 					</tr>
 				{% endfor %}
 			</tbody>

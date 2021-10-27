@@ -11,11 +11,14 @@
 					<th>Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+					{% if is_granted('ROLE_ADMIN') %}
+						<th>Action</th>
+					{% endif %}
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-                {% if course.category.name != "" %}
+                {% if course.category.name != null %}
                     <td>{{course.category.name}}</td>
                 {% else %}
                     <td></td>
@@ -23,12 +26,14 @@
 					<td>{{course.name }}</td>
                     <td>{{ course.startDate|date('d/m/Y')}}</td>
 					<td>{{ course.endDate|date('d/m/Y')}}</td>
-					<td>
-						<a class="btn btn-info" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a>
-						<a class="btn btn-warning" href="{{ path('course_delete', {'id': course.id}) }}"
-                  onclick= "return confirm('Are you sure to delete this course ?')"
-                  >DELETE</a>
-					</td>
+					{% if is_granted('ROLE_ADMIN') %}
+						<td>
+							<a class="btn btn-info" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a>
+							<a class="btn btn-warning" href="{{ path('course_delete', {'id': course.id}) }}"
+							onclick= "return confirm('Are you sure to delete this course ?')"
+							>DELETE</a>
+						</td>
+					{% endif %}
 				</tr>
 			</tbody>
 		</table>
