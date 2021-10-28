@@ -16,8 +16,9 @@
         {% endblock %}
     </head>
     <body>
+	<div class="" style="backgroud-color">
         {# tạo 1 section để hiển thị thông báo Flash được gửi từ Controller (back-end) #}
-		<div class="container mt-3 text-center col-md-5">
+		<div class="container text-center col-md-5">
 			{% for message in app.flashes('Success') %}
 				<p class="alert alert-success">{{ message }}</p>
 			{% endfor %}
@@ -28,8 +29,8 @@
 		
 		{% block header %}
 			{# navigation bar #}
-		<div class="navbar navbar-light" style="background-color: #e3f2fd;">
-			<ul class="nav justify-content-center">
+		<nav class="navbar navbar-light" style="background-color: lightblue">
+			<ul class="nav justify-content-center", align="center">
 				<li class="nav-item">
 					<h2>
 						<a class="nav-link" href="{{ path('home') }}">HOME</a>
@@ -37,7 +38,7 @@
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="navbar-brand" href="{{ path('category_index') }}">CATEGORY</a>
+						<a class="navbar-brand" href="{{ path('category_index') }}">MAJOR</a>
 					</h2>
 				</li>
 				<li class="nav-item">
@@ -61,7 +62,8 @@
 					</h2>
 				</li>
 			</ul>
-		</div>
+		</nav>
+	</div>
 		{% endblock %}
 
 		{% block body %} {% endblock %}
