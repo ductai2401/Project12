@@ -71,9 +71,22 @@ class CourseController extends AbstractController
         $form = $this->createForm(CourseType::class, $course);
         $form->handleRequest($request);
 
+        
+        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
+            $date1 = $form['endDate']->getData();
+            $date11 = $date1->format('Y-m-d');
+            $date2 = $form['startDate']->getData();
+            $date22 = $date2->format('Y-m-d');
+            $duration = floor((strtotime($date11) - strtotime($date22))/(60*60*24));
+            if($duration<0){
+                $this->addFlash('Error', "Start Date must before End Date");
+                return $this->redirectToRoute("course_index");
+            }
             $manager->persist($course);
+            
             $manager->flush();
 
             $this->addFlash('Success', "Course has been added successfully !");

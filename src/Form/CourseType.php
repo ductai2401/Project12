@@ -38,24 +38,24 @@ class CourseType extends AbstractType
                 'widget' => 'single_text',
             ]
             )
-            ->add('teacherList', EntityType::class,
-            [
-                'label' => 'Teacher List',
-                'class' => Teacher::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => false,
-            ]
-            )
-            ->add('studentList', EntityType::class,
-            [
-                'label' => 'Student List',
-                'class' => Student::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => false,
-            ]
-            )
+            // ->add('teacherList', EntityType::class,
+            // [
+            //     'label' => 'Teacher List',
+            //     'class' => Teacher::class,
+            //     'choice_label' => 'name',
+            //     'multiple' => true,
+            //     'expanded' => false,
+            // ]
+            // )
+            // ->add('studentList', EntityType::class,
+            // [
+            //     'label' => 'Student List',
+            //     'class' => Student::class,
+            //     'choice_label' => 'name',
+            //     'multiple' => true,
+            //     'expanded' => false,
+            // ]
+            // )
             ->add('category', EntityType::class,
             [
                 'label' => 'Major',

@@ -11,6 +11,8 @@
 					<th>Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+					<th>Duration</th>
+					<th>Teacher</th>
 					{% if is_granted('ROLE_ADMIN') %}
 						<th>Action</th>
 					{% endif %}
@@ -26,6 +28,15 @@
 					<td>{{course.name }}</td>
                     <td>{{ course.startDate|date('d/m/Y')}}</td>
 					<td>{{ course.endDate|date('d/m/Y')}}</td>
+					<td>{{course.Duration}} days</td>
+					<td>
+						{% for teacher in course.teacherList %}
+						{{teacher.name}}
+						<br>
+						{% endfor %}
+					</td>
+					
+						
 					{% if is_granted('ROLE_ADMIN') %}
 						<td>
 							<a class="btn btn-info" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a>

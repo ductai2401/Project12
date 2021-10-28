@@ -49,6 +49,11 @@ class Course
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $duration;
+
     public function __construct()
     {
         $this->teacherList = new ArrayCollection();
@@ -158,6 +163,18 @@ class Course
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getDuration(): ?float
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(?float $duration): self
+    {
+        $this->duration = $duration;
 
         return $this;
     }
