@@ -46,7 +46,7 @@ class StudentType extends AbstractType
                 'class' => Course::class,
                 'choice_label' => "name", //hien thi course name de chon
                 'multiple' => true,
-                'expanded' => false   //true: textbox, false: dropdown
+                'expanded' => true,   //true: checkbox, false: dropdown
             ])
         ;
     }

@@ -18,10 +18,10 @@
 			</thead>
 			<tbody>
 				<tr>
-                {% if  course.category.id %}
+                {% if  course.category != null %}
                     <td>{{course.category.name}}</td>
                 {% else %}
-                    <td></td>
+                    <td>This course is not assigned to any Major</td>
                 {% endif %}
 					<td>{{course.name }}</td>
                     <td>{{ course.startDate|date('d/m/Y')}}</td>

@@ -31,7 +31,7 @@ class CategoryController extends AbstractController
     public function categoryDetail($id){
         $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
         if ($category == null) {
-            $this->addFlash('Error', 'Course not found !');
+            $this->addFlash('Error', 'Category not found !');
             return $this->redirectToRoute('category_index');
         } else { //$category != null
             return $this->render(
@@ -105,7 +105,7 @@ class CategoryController extends AbstractController
             $this->addFlash('Success', "Category has been updated successfully !");
             return $this->redirectToRoute("category_index");
         }
-
+        
         return $this->render (
             "category/edit.html.twig", 
             [
