@@ -32,15 +32,15 @@ class CategoryType extends AbstractType
             ]
             )
 
-            ->add('courseList', EntityType::class,
-            [
-                'label' => 'Course',
-                'class' => Course::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-            ]
-            )
+            // ->add('courseList', EntityType::class,
+            // [
+            //     'label' => 'Course',
+            //     'class' => Course::class,
+            //     'choice_label' => 'name',
+            //     'multiple' => true,
+            //     'expanded' => true,
+            // ]
+            // )
         ;
     }
     
