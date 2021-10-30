@@ -19,13 +19,13 @@ class TeacherType extends AbstractType
         $builder
             ->add('name', TextType::class,
             [
-                'label' => 'name',
+                'label' => 'Name',
                 'required' => true,
             ]
             )
             ->add('age', IntegerType::class,
             [
-                'label' => 'age',
+                'label' => 'Age',
                 'required' => true,
             ]
             )
@@ -39,13 +39,13 @@ class TeacherType extends AbstractType
             )
             ->add('address', TextType::class,
             [
-                'label' => 'address',
+                'label' => 'Address',
                 'required' => true,
             ]
             )
             ->add('phone', TextType::class,
             [
-                'label' => 'phone',
+                'label' => 'Phone Number',
                 'required' => true,
             ]
             )

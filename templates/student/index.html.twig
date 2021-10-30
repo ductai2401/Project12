@@ -2,11 +2,13 @@
 
 {% block body %}
 	<div class="container col-md-6 mt-3">
-		<h3 class="text-success text-center">STUDENT LIST</h3>
+		<h3 class="text-success text-center" style="font-family:Papyrus;">STUDENT LIST</h3>
+		{% if is_granted('ROLE_ADMIN') %}
 		<a class="btn btn-outline-success mt-2" href="{{ path('student_add') }}">ADD STUDENT</a>
-		<table class="table table-striped text-center mt-2">
-			<thead>
-				<tr>
+		{% endif %}
+		<table class="table text-center mt-3", style="background-color: lightblue">
+			<thead style="background-color: black">
+				<tr style="color: #FFFFF0">
 					<th>ID</th>
 					<th>Name</th>
 					<th>Avatar</th>

@@ -14,9 +14,14 @@
             {#{{ encore_entry_script_tags('app') }}#}
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         {% endblock %}
+		<style>
+			nav{
+				font-family: Papyrus;
+				background-color: #1400a7;
+			}
+		</style>
     </head>
-    <body>
-	<div class="" style="backgroud-color">
+    <body style="background-color: #FFFFF0">
         {# tạo 1 section để hiển thị thông báo Flash được gửi từ Controller (back-end) #}
 		<div class="container text-center col-md-5">
 			{% for message in app.flashes('Success') %}
@@ -29,47 +34,46 @@
 		
 		{% block header %}
 			{# navigation bar #}
-		<nav class="navbar navbar-light" style="background-color: lightblue">
+		<nav class="site-navigation position-relative text-center">
 			<ul class="nav justify-content-center", align="center">
-				<li class="nav-item">
+				<li class="nav-item text-center">
 					<h2>
-						<a class="nav-link" href="{{ path('home') }}">HOME</a>
+						<a class="nav-link" style = "color:#FFFFF0" href="{{ path('home') }}">HOME</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="navbar-brand" href="{{ path('category_index') }}">MAJOR</a>
+						<a class="navbar-brand" style = "color:#FFFFF0" href="{{ path('category_index') }}">MAJOR</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="navbar-brand" href="{{ path('course_index') }}">COURSE</a>
+						<a class="navbar-brand" style = "color:#FFFFF0" href="{{ path('course_index') }}">COURSE</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="navbar-brand" href="{{ path('teacher_index') }}">TEACHER</a>
+						<a class="navbar-brand" style = "color:#FFFFF0" href="{{ path('teacher_index') }}">TEACHER</a>
 					</h2>
 				</li>
                 <li class="nav-item">
 					<h2>
-						<a class="navbar-brand" href="{{ path('student_index') }}">STUDENT</a>
+						<a class="navbar-brand" style = "color:#FFFFF0" href="{{ path('student_index') }}">STUDENT</a>
 					</h2>
 				</li>
 				<li class="nav-item">
 					<h2>
-						<a class="navbar-brand" href="{{ path('app_logout') }}">LOGOUT</a>
+						<a class="navbar-brand" style = "color:#FFFFF0" href="{{ path('app_logout') }}">LOGOUT</a>
 					</h2>
 				</li>
 			</ul>
 		</nav>
-	</div>
 		{% endblock %}
 
 		{% block body %} {% endblock %}
 
 		{% block footer %}
-			<div class="container mt-3 text-center">
+			<div class="container mt-3 text-center", style="font-family: Papyrus">
 				<h5 class="text-success">Copyright by Greenwich University - 2021</h5>
 			</div>
 		{% endblock %}
