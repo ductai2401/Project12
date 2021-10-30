@@ -4,7 +4,7 @@
 	<div class="container col-md-6 mt-3">
 		<h3 class="text-success text-center" style="font-family:Papyrus;">COURSE LIST</h3>
 		{% if is_granted('ROLE_ADMIN') %}
-			<a class="btn btn-outline-success mt-2" href="{{ path('course_add') }}">ADD COURSE</a>
+			<a class="btn btn-outline-dark" href="{{ path('course_add') }}">ADD COURSE</a>
 		{% endif %}
 		<table class="table text-center mt-3", style="background-color: lightblue">
 			<thead style="background-color: black">
@@ -26,8 +26,8 @@
 						</td>
 						{% if is_granted('ROLE_ADMIN') %}
 							<td>
-							<a class="btn btn-info" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a>
-							<a class="btn btn-warning" href="{{ path('course_delete', {'id':course.id}) }}" onclick="return confirm('Are you sure to delete this course ?')">DELETE</a>
+							<a class="btn btn-warning" href="{{ path('course_edit', {'id': course.id}) }}">EDIT</a>
+							<a class="btn btn-danger" href="{{ path('course_delete', {'id':course.id}) }}" onclick="return confirm('Are you sure to delete this course ?')">DELETE</a>
 							</td>
 						{% endif %}
 					</tr>

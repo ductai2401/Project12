@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
-* @IsGranted("ROLE_ADMIN")
+* @IsGranted("ROLE_USER")
 */
 class TeacherController extends AbstractController
 {

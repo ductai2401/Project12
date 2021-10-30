@@ -4,16 +4,16 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-<div class="container text-center col-5 mt-5">
-    <h1 class="title text-uppercase text-primary">Register</h1>
+<div class="container col-4 mt-3 mb-4 text-center card bg-dark text-white" style="font-family:Times New Roman;">
+    <h1 class="title text-uppercase ">Register</h1>
 
     {{ form_start(registrationForm) }}
     <div class="row"  required autofocus>
         <label>Username</label>
-        {{ form_widget(registrationForm.username) }}
+        <input type="text" {{ form_widget(registrationForm.username) }}
    
         <label>Password</label>
-        {{ form_widget(registrationForm.plainPassword) }}
+        <input type="text" {{ form_widget(registrationForm.plainPassword) }}
     </div>
 
     <div class="form-check">

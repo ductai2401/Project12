@@ -2,9 +2,9 @@
 
 {% block body %}
 	<div class="container col-md-6 mt-3">
-		<h3 class="text-success text-center" style="font-family:Papyrus;">TEACHER LIST</h3>
+		<h3 class="text-primary text-center" style="font-family:Papyrus;">TEACHER LIST</h3>
 		{% if is_granted('ROLE_ADMIN') %}
-		<a class="btn btn-outline-success mt-2" href="{{ path('teacher_add') }}">ADD TEACHER</a>
+		<a class="btn btn-outline-dark" href="{{ path('teacher_add') }}">ADD TEACHER</a>
 		{% endif %}
 		<table class="table text-center mt-3", style="background-color: lightblue">
 			<thead style="background-color: black">
@@ -35,8 +35,8 @@
                         <td>{{teacher.phone}}</td>
 						{% if is_granted('ROLE_ADMIN') %}
 							<td>
-								<a class="btn btn-info" href="{{ path('teacher_edit', {'id': teacher.id}) }}">EDIT</a>
-								<a class="btn btn-warning" href="{{ path('teacher_delete', {'id': teacher.id}) }}" onclick="return confirm('Are you sure to delete this teacher ?')">DELETE</a>
+								<a class="btn btn-warning" href="{{ path('teacher_edit', {'id': teacher.id}) }}">EDIT</a>
+								<a class="btn btn-danger" href="{{ path('teacher_delete', {'id': teacher.id}) }}" onclick="return confirm('Are you sure to delete this teacher ?')">DELETE</a>
 							</td>
 						{% endif %}
 					</tr>
